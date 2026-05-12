@@ -2,7 +2,7 @@
 /**
  * SahiDawa DevTrack — AI Documentation Generator
  *
- * Reads PR context from environment variables, calls the Gemini 1.5 Flash API,
+ * Reads PR context from environment variables, calls the Gemini API,
  * and writes the generated markdown doc to the correct path under docs/devtrack/.
  *
  * Requires:
