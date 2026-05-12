@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write    # to commit generated docs back to repo
-      pull-requests: read
+      pull-requests: write # to create PRs if branch protection prevents direct commit
 
     steps:
       # ── 1. Checkout ───────────────────────────────────────────────────────────
@@ -255,15 +255,38 @@ jobs:
               }
             });
 
-            // Update main branch ref
-            await github.rest.git.updateRef({
-              owner, repo,
-              ref: "heads/main",
-              sha: newCommit.sha,
-            });
-
-            console.log(`✅ DevTrack docs committed via GitHub API: ${newCommit.sha}`);
-            console.log(`   Files committed: ${filesToCommit.map(f => f.rel).join(", ")}`);
+            // Update main branch ref or create a PR if protected
+            try {
+              await github.rest.git.updateRef({
+                owner, repo,
+                ref: "heads/main",
+                sha: newCommit.sha,
+              });
+              console.log(`✅ DevTrack docs committed via GitHub API: ${newCommit.sha}`);
+              console.log(`   Files committed: ${filesToCommit.map(f => f.rel).join(", ")}`);
+            } catch (err) {
+              if (err.status === 422 || err.status === 403) {
+                console.log("⛔ Branch is protected. Creating a PR instead...");
+                const branchName = `devtrack/docs-pr-${PR_NUM}-${Date.now()}`;
+                
+                await github.rest.git.createRef({
+                  owner, repo,
+                  ref: `refs/heads/${branchName}`,
+                  sha: newCommit.sha
+                });
+                
+                const pr = await github.rest.pulls.create({
+                  owner, repo,
+                  title: commitMsg,
+                  head: branchName,
+                  base: "main",
+                  body: "DevTrack automatically generated documentation for PR #" + PR_NUM + ".\\n\\nSince `main` is a protected branch, this PR was automatically created to merge the documentation."
+                });
+                console.log(`✅ Pull request opened: #${pr.data.number}`);
+              } else {
+                throw err;
+              }
+            }
 
 
       # ── 9. Summary ────────────────────────────────────────────────────────────
