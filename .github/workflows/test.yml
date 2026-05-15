@@ -25,7 +25,14 @@ jobs:
 
             - name: 📦 Install Dependencies (Monorepo)
               run: npm ci
+              
+            - name: 🔍 Lint Check
+              run: npm run lint -w web
 
+            - name: 🔷 TypeScript Check
+              working-directory: apps/web
+              run: npx tsc --noEmit
+              
             - name: 🏗️ Build Workspace Apps
               run: npm run build
 
