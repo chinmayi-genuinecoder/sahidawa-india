@@ -176,4 +176,91 @@ To help maintainers and other developers debug your issue quickly, please provid
 * You can also join our `#help` channel on our official [Discord Server](https://discord.gg/dvbDuJVwNa) for real-time collaboration.
 
 Let's support each other and build a beautiful community! 🩺💙
+```
+
+---
+
+## Notice 4: Cloudinary Bounty Guidelines & Bonus GSSoC Points 🏆
+**Category:** Ideas (or General)
+**Title:** 🏆 Cloudinary Bounty Guidelines: How to Integrate Media APIs & Earn Bonus Points!
+
+### Content:
+```markdown
+# 🏆 Cloudinary Bounty Guidelines & Bonus GSSoC Points!
+
+Hey SahiDawa contributors! 🚀 SahiDawa is proud to be a **Cloudinary Bounty Partner Project** for GSSoC 2026.
+
+This means that any developer who builds features or resolves issues by integrating Cloudinary's powerful Media APIs (Images, Videos, transformations) will earn **extra bonus points** on the GSSoC leaderboard!
+
+---
+
+### 💡 1. Where can we use Cloudinary in SahiDawa?
+SahiDawa has several active and planned features where Cloudinary is a perfect fit. Here are the core bounty target areas:
+* **🖼️ Medicine Photo Scanner (`apps/web`):** Upload medicine packaging photos to Cloudinary, optimize them (auto-format, auto-quality), and feed the secure optimized URLs to the FastAPI Python service for OpenCV classification.
+* **🗺️ Pharmacy Logos & Verification Proofs:** Upload verified pharmacy shop photos and verification certificate uploads directly to Cloudinary.
+* **📊 Counterfeit Medicine Heatmap Visuals:** When citizens report fake medicines in their districts, allow them to upload medicine photos/proofs hosted securely on Cloudinary.
+* **📱 Barcode & Dynamic PDF Reports:** Generate barcode images or dynamic PDF verification receipts dynamically transformed on-the-fly using Cloudinary's URL transformation features!
+
+---
+
+### 🛠️ 2. How to Claim Bounty Points
+1. **Find a Bounty Issue:** Look for open issues labeled with `bounty-partner` or `cloudinary`. Alternatively, pitch a new Cloudinary feature in this Discussion thread!
+2. **Setup Cloudinary locally:** Get a free Cloudinary account at [cloudinary.com](https://cloudinary.com/). Add your `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` to your local `.env` file.
+3. **Write Optimized Code:** Always use Cloudinary's best practices:
+   - Use dynamic transformations (e.g. `f_auto,q_auto` for automatic WebP/AVIF formatting and quality compression).
+   - Use the official Cloudinary SDKs (Node.js SDK for backend API uploads, frontend SDK for widgets/rendering).
+4. **Submit PR:** In your Pull Request, clearly state that you have integrated Cloudinary and attach screenshots or videos showing the asset uploaded successfully in your Cloudinary console.
+
+---
+
+### 💬 3. Pitch Your Ideas!
+Do you have a unique idea for using Cloudinary in SahiDawa? Comment your ideas right below in this thread! We are assigning custom bounty badges to the best creative approaches.
+
+Happy coding! Let's make SahiDawa visually rich and ultra-performant! 🎨🩺
+```
+
+---
+
+## Notice 5: Project Roadmap & Collaborative Feature Brainstorming 🗺️
+**Category:** Ideas
+**Title:** 🗺️ SahiDawa Roadmap & Brainstorming: Pitch Your Innovative Feature Ideas Here!
+
+### Content:
+```markdown
+# 🗺️ SahiDawa Roadmap & Brainstorming Board
+
+Hey SahiDawa Community! 🩺 SahiDawa is more than a barcode scanner — it is a rural health bridge designed for 1.4 billion people. We have mapped out a solid architectural pipeline, but we want **YOU** to pitch innovative ideas and make this platform even better.
+
+This discussion board is our collaborative brainstorming zone!
+
+---
+
+### 🚀 1. SahiDawa's Vision & Pipeline
+Our primary roadmap consists of:
+* **Phase 1 (Core):** Medicine scanner UI, Express REST API, and Supabase integration (CDSCO Database).
+* **Phase 2 (Map & Offline):** Leaflet.js PostGIS pharmacy locator maps, and Workbox offline caching.
+* **Phase 3 (AI Health Bridge):** Whisper ASR voice support (22 Indian languages), TF Lite package classifiers, and Sarvam AI / LangChain rural health triage agents.
+* **Phase 4 (Launch):** WCAG 2.1 accessibility and light-weight deployment optimization.
+
+---
+
+### 💡 2. What kind of ideas are we looking for?
+We would love to hear your proposals on:
+1. **ASHA Workers Support:** Tools to make SahiDawa extremely friendly for ground-level ASHA workers.
+2. **Offline-first Architecture:** How can we verify medicines in zero-internet remote villages? (e.g., using lightweight client-side databases or offline-sync mechanisms).
+3. **Multilingual UI/Voice:** Novel ideas to make Indian local language translation seamless and conversational.
+4. **UX/UI Accessibility:** Making the app extremely easy to read and navigate for elderly or visually impaired citizens.
+
+---
+
+### 📋 3. How to Pitch an Idea:
+To make your idea actionable, comment below with:
+1. **Title:** A clear, concise title for your feature.
+2. **The Problem:** What specific healthcare/usability problem does this solve?
+3. **The Solution:** How will this work? (Attach mockups, architectural diagrams, or tech stack stack ideas).
+4. **Implementation:** Are you willing to code this under GSSoC 2026?
+
+Let's brainstorm, collaborate, and build the future of Indian citizen healthcare together! 🇮🇳❤️🩺
+```
+
 ````
