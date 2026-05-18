@@ -3,6 +3,7 @@ import { Activity, ArrowLeft, Filter, AlertTriangle, AlertCircle } from "lucide-
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { Globe } from "lucide-react";
+import RecallPushSubscriber from "@/components/alerts/RecallPushSubscriber";
 
 export const revalidate = 0;
 
@@ -84,6 +85,8 @@ export default async function FullAlertsLogPage() {
                     Database synchronization error encountered while fetching active logs.
                 </div>
             )}
+
+            <RecallPushSubscriber />
 
             <div className="space-y-4">
                 {allAlerts && allAlerts.length > 0 ? (

@@ -27,6 +27,7 @@ import reportsRouter from './routes/reports';
 import pharmaciesRouter from './routes/pharmacies';
 import verifyRouter from './routes/verify';
 import analyticsRoutes from './routes/analytics';
+import notificationsRouter from './routes/notifications';
 import { supabase } from './db/client';
 
 import logger from './utils/logger';
@@ -118,6 +119,7 @@ app.use('/reports', reportsRouter);
 app.use('/api/pharmacies', pharmaciesRouter);
 app.use('/api/verify', verifyRouter);
 app.use('/api/analytics', analyticsRoutes);
+app.use('/api/notifications', notificationsRouter);
 
 app.use(errorHandler);
 
